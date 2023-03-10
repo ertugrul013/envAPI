@@ -23,9 +23,9 @@ projectName (required): the name of the project for which to retrieve environmen
 ### Headers
 Authorization: the authentication token, in the format Bearer {AUTH_TOKEN} 🔒
 ### Response
-200 OK: returns an object containing the environment variables for the specified project 🎉
-401 Unauthorized: if the authentication token is missing or invalid 😡
-404 Not Found: if no environment variables are found for the specified project 🤷
+* 200 OK: returns an objec t containing the environment variables for the specified project 🎉
+* 401 Unauthorized: if the authentication token is missing or invalid 😡
+* 404 Not Found: if no environment variables are found for the specified project 🤷
 ## GET *
 Returns a 404 "Not Found" error for all other API requests 🤔
 
