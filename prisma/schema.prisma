@@ -1,0 +1,28 @@
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Project {
+  id                  String                @id @default(cuid()) @map("_id")
+  name                String
+  token               String                @unique
+  EnvironmentVariable EnvironmentVariable[]
+
+  @@unique([name])
+}
+
+model EnvironmentVariable {
+  id        String  @id @default(cuid()) @map("_id")
+  key       String
+  value     String
+  projectId String
+  project   Project @relation(fields: [projectId], references: [id])
+
+  @@unique([key, projectId])
+  @@index([projectId])
+}
